@@ -1,1 +1,7 @@
 *.pyc
+bower_components/*
+ENV/*
+env/*
+build/*
+*.*~
+*~
