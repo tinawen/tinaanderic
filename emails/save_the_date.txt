@@ -6,6 +6,8 @@ Saturday, October 3rd, 2015
 Randolph, NJ 07869
 ---------------------------
 
+Dear {{ name }},
+
 Microsoft is the birth of many things. One of them is Tina and Eric's love. After 5 years of dating, the couple finally decided to seal the deal and get married in front of their beloved family and friends. You are cordially invited to join the celebration on October 3, 2015, Randolph, New Jersey. 
 
 We can't wait to celebrate this exciting day with you. More info to come and will be found on www.tinaanderic.com. (We are still building the website as we speak.)
