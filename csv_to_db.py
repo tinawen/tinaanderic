@@ -27,9 +27,9 @@ if __name__ == "__main__":
     line = line.split(',')
     name = line[0]
     group_id = int(line[1])
-    primary = bool(line[2])
+    is_primary = int(line[2])
     email = line[3]
-    db.session.add(Guest(group_id, name, email, primary))
+    db.session.add(Guest(group_id, name, email, is_primary))
     num_added += 1
 
   db.session.commit()
