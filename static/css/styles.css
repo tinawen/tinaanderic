@@ -1,5 +1,5 @@
 body {
-  background: #fA7089;
+  background: #fa7089;
   color: white;
 }
 
@@ -19,7 +19,6 @@ body a:visited {
 nav {
   background: white;
 }
-
 nav a:link {
   color: #fa7089;
   font-weight: bold;
@@ -35,4 +34,7 @@ nav a:hover {
 }
 nav a:active {
   text-decoration: none;
+}
+.navbar-header .navbar-toggle .icon-bar {
+    background-color: #fa7089;
 }
