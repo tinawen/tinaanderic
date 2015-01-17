@@ -4,8 +4,8 @@ from flask import render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-db = SQLAlchemy(app)
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+#db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
@@ -19,9 +19,9 @@ def rsvp():
 def event():
     return render_template('event.jinja2')
 
-@app.route("/registry")
-def registry():
-    return render_template('registry.jinja2')
+@app.route("/accommodation")
+def accommodation():
+    return render_template('accommodation.jinja2')
 
 @app.route("/gallery")
 def gallery():

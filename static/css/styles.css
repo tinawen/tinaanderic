@@ -1,15 +1,32 @@
 body {
-  /* add padding for fixed navbar */
-  padding: 150px;
+  background: #fA7089;
+  color: white;
 }
 
-/* remove decoration from header link */
+body a:link {
+  color: #dddddd;
+}
+
+body a:visited {
+  color: #dddddd;
+}
+
+.picturewrapper {
+  background: white;
+  padding: 10px;
+}
+
+nav {
+  background: white;
+}
+
 nav a:link {
-  color: #000000;
+  color: #fa7089;
+  font-weight: bold;
   text-decoration: none;
 }
 nav a:visited {
-  color: #000000;
+  color: #fa7089;
   text-decoration: none;
 }
 nav a:hover {
