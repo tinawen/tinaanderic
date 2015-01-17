@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
   request_url = 'https://api.mailgun.net/v2/tinaanderic.com/messages'
   request = requests.post(request_url, auth=('api', key), data={
-    'from': 'wedding@tinaanderic.com',
+    'from': 'Tina and Eric\'s Wedding <wedding@tinaanderic.com>',
     'to': args.to,
     'subject': args.subject,
     'html': email_html,

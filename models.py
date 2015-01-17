@@ -5,10 +5,10 @@ class Guest(db.Model):
   group_id = db.Column(db.Integer)
   name = db.Column(db.String(80))
   email = db.Column(db.String(120))
-  primary = db.Column(db.Boolean())
+  is_primary = db.Column(db.Integer)
 
-  def __init__(self, group_id, name, email, primary=False):
+  def __init__(self, group_id, name, email, is_primary):
     self.group_id = group_id
     self.name = name
     self.email = email
-    self.primary = primary
+    self.is_primary = is_primary
