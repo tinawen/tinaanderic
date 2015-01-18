@@ -1,6 +1,7 @@
 body {
   background: #fa7089;
   color: white;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body a:link {
@@ -22,10 +23,6 @@ body a:visited {
   padding: 10px;
 }
 
-nav {
-  background: white;
-  padding: 10px;
-}
 nav a:link {
   color: #fa7089;
   font-weight: bold;
@@ -42,6 +39,10 @@ nav a:hover {
 nav a:active {
   text-decoration: none;
 }
-.navbar-header .navbar-toggle .icon-bar {
-    background-color: #white;
+.mynavbar {
+  background: white;
+  padding: 10px;
+}
+.navbar-toggle .icon-bar {
+  background-color: white;
 }
