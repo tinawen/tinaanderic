@@ -10,7 +10,7 @@
 import sys
 from bs4 import BeautifulSoup
 
-THUMBNAIL_SIZE = 200
+THUMBNAIL_SIZE = 75
 
 def add_size_param(base_url, param):
   parts = base_url.split('/')
