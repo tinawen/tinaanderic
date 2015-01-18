@@ -59,6 +59,13 @@ ul.nav a:hover { background-color: transparent !important; }
   background-color: white;
 }
 
+#welcomebanner {
+  position:relative;
+  top: -130px;
+  left: 45px;
+  font-size: 80px;
+}
+
 #links {
   background-color: #fff;
   text-align: center;
