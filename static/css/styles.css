@@ -1,5 +1,5 @@
 body {
-  background: #fa7089;
+  background: #FA7089;
   color: white;
 }
 
@@ -22,22 +22,38 @@ body a:visited {
   padding: 10px;
 }
 
+.container {
+  font-family: 'Josefin Sans', sans-serif;
+}
 nav {
   background: white;
   padding: 10px;
 }
+
 nav a:link {
-  color: #fa7089;
+  font-size: 18px;
+  color: #F4002B;
   font-weight: bold;
   text-decoration: none;
+  outline: none;
+  -webkit-transition: all 0.66s ease; /* Safari and Chrome */
+  -moz-transition: all 0.66s ease; /* Firefox */
+  -ms-transition: all 0.66s ease; /* IE 9 */
+  -o-transition: all 0.66s ease; /* Opera */
+  transition: all 0.66s ease;
 }
 nav a:visited {
-  color: #fa7089;
+  color: #F4002B;
   text-decoration: none;
 }
 nav a:hover {
-  color: #404040;
+  color: #B72E46;
   text-decoration: none;
+  -webkit-transform:scale(1.25); /* Safari and Chrome */
+  -moz-transform:scale(1.25); /* Firefox */
+  -ms-transform:scale(1.25); /* IE 9 */
+  -o-transform:scale(1.25); /* Opera */
+  transform:scale(1.25);
 }
 nav a:active {
   text-decoration: none;
