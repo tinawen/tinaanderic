@@ -1,17 +1,32 @@
 body {
-  background: #FA7089;
+  background: #F5004F;
   color: white;
   font-family: 'Josefin Sans', sans-serif;
 }
 
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
 .picturewrapper {
   background: white;
   padding: 0 10px 10px 10px;
 }
 
+.gallerywrapper {
+  background-color: white;
+  width: 100%;
+  padding-left: 10px;
+}
+
 nav a:link {
   font-size: 18px;
-  color: #F4002B;
+  color: #F5004F;
   font-weight: bold;
   text-decoration: none;
   outline: none;
@@ -22,27 +37,36 @@ nav a:link {
   transition: all 0.66s ease;
 }
 nav a:visited {
-  color: #F4002B;
+  color: #F5004F;
   text-decoration: none;
 }
 nav a:hover {
-  color: #B72E46;
+  color: #F5004F;
   text-decoration: none;
-  -webkit-transform:scaleX(1.25); /* Safari and Chrome */
-  -moz-transform:scaleX(1.25); /* Firefox */
-  -ms-transform:scaleX(1.25); /* IE 9 */
-  -o-transform:scaleX(1.25); /* Opera */
-  transform:scaleX(1.25);
+  -webkit-transform:scale(1.25); /* Safari and Chrome */
+  -moz-transform:scale(1.25); /* Firefox */
+  -ms-transform:scale(1.25); /* IE 9 */
+  -o-transform:scale(1.25); /* Opera */
+  transform:scale(1.25);
 }
 nav a:active {
   text-decoration: none;
 }
+
+ul.nav a:hover { background-color: #fff !important; }
+
 .mynavbar {
   background: white;
   padding: 0 10px 10px 10px;
 }
+
 .navbar-toggle .icon-bar {
   background-color: white;
+}
+
+#links {
+  background-color: #fff;
+  text-align: center;
 }
 #links a{
   font-size:0;
