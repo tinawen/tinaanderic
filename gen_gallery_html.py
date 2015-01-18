@@ -1,12 +1,14 @@
 # Hacky script for generating gallery page html.
 # The input is assumed the be copy-pasted directly from picasaweb source code,
-# and so is a single line of all the urls glued together, i.e.:
+# that contains image srcs. i.e.:
 #
-# https://url1https://url2https://url3
+# <div><a href=""><img src=""></a></p></div><div><a href=""><img src=""></a></p></div>
+# <div><a href=""><img src=""></a></p></div><div><a href=""><img src=""></a></p></div>
 #
 # The output html for the gallery page is written to standard out.
 
 import sys
+from bs4 import BeautifulSoup
 
 THUMBNAIL_SIZE = 200
 
@@ -29,8 +31,10 @@ def gen_html(big_url, thumb_url, caption):
 
 if __name__ == "__main__":
   input_file = sys.argv[1]
-  for url in open(input_file).read().split('https://')[1:]:
-    base_url = 'https://' + ''.join(url.split('s128/'))
+  soup = BeautifulSoup(open(input_file).read())
+  urls = [img['src'] for img in soup.find_all('img')]
+  for url in urls:
+    base_url = ''.join(url.split('s128/'))
     # Base url, use original size of the image, i.e. 's0'
     big_url = add_size_param(base_url, 's0')
     # Thumbnail url, square smart crop to THUMBNAIL_SIZE.

@@ -44,3 +44,6 @@ nav a:active {
 .navbar-toggle .icon-bar {
   background-color: white;
 }
+#links a{
+  font-size:0;
+}
