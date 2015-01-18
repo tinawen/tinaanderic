@@ -64,6 +64,7 @@ ul.nav a:hover { background-color: transparent !important; }
   top: -11vw;
   left: 5vw;
   font-size: 6vw;
+  text-shadow: 4px 4px 4px #333;
 }
 
 #links {
