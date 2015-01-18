@@ -9,31 +9,31 @@ db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
-    return render_template('index.jinja2')
+    return render_template('index.jinja2', active="home")
 
 @app.route("/rsvp")
 def rsvp():
-    return render_template('rsvp.jinja2')
+    return render_template('rsvp.jinja2', active="rsvp")
 
 @app.route("/event")
 def event():
-    return render_template('event.jinja2')
+    return render_template('event.jinja2', active="event")
 
 @app.route("/accommodation")
 def accommodation():
-    return render_template('accommodation.jinja2')
+    return render_template('accommodation.jinja2', active="accomodation")
 
 @app.route("/gallery")
 def gallery():
-    return render_template('gallery.jinja2')
+    return render_template('gallery.jinja2', active="gallery")
 
 @app.route("/stories")
 def stories():
-    return render_template('stories.jinja2')
+    return render_template('stories.jinja2', active="stories")
 
 @app.route("/registry")
 def registry():
-	return render_template('registry.jinja2')
+	return render_template('registry.jinja2', active="registry")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

@@ -41,13 +41,41 @@
 	</div>
 	<div class="row mynavbar collapse navbar-collapse" id="navbar-collapse">
 	  <ul class="nav nav-justified">
-	    <li><a href="/">Home</a></li>
-	    <li><a href="/rsvp">RSVP</a></li>
+    {% if active == "home" %}
+    <li><a class="active" href="/">Home</a></li>
+    {% else %}
+	   <li><a href="/">Home</a></li>
+    {% endif %}
+    {% if active == "rsvp" %}
+	   <li><a class="active" href="/rsvp">RSVP</a></li>
+    {% else %}
+      <li><a href="/rsvp">RSVP</a></li>
+    {% endif %}
+    {% if active == "event" %}
+    <li><a class="active" href="/event">Events</a></li>
+    {% else %}
 	    <li><a href="/event">Events</a></li>
+      {% endif %}
+      {% if active == "accomodation" %}
+      <li><a class="active" href="/accommodation">Accommodation</a></li>
+      {% else %}
 	    <li><a href="/accommodation">Accommodation</a></li>
+      {% endif %}
+      {% if active == "gallery" %}
+      <li><a class="active" href="/gallery">Gallery</a></li>
+      {% else %}
 	    <li><a href="/gallery">Gallery</a></li>
+      {% endif %}
+      {% if active == "stories" %}
+      <li><a class="active" href="/stories">Stories</a></li>
+      {% else %}
 	    <li><a href="/stories">Stories</a></li>
+      {% endif %}
+      {% if active == "registry" %}
+      <li><a class="active" href="/registry">Registry</a></li>
+      {% else %}
 	    <li><a href="/registry">Registry</a></li>
+      {% endif %}
 	  </ul>
 	</div>
       </nav>

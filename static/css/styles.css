@@ -30,30 +30,25 @@ nav a:link {
   font-weight: bold;
   text-decoration: none;
   outline: none;
-  -webkit-transition: all 0.66s ease; /* Safari and Chrome */
-  -moz-transition: all 0.66s ease; /* Firefox */
-  -ms-transition: all 0.66s ease; /* IE 9 */
-  -o-transition: all 0.66s ease; /* Opera */
-  transition: all 0.66s ease;
 }
 nav a:visited {
   color: #F5004F;
   text-decoration: none;
 }
 nav a:hover {
-  color: #F5004F;
+  color: #9F0033;
   text-decoration: none;
-  -webkit-transform:scale(1.25); /* Safari and Chrome */
-  -moz-transform:scale(1.25); /* Firefox */
-  -ms-transform:scale(1.25); /* IE 9 */
-  -o-transform:scale(1.25); /* Opera */
-  transform:scale(1.25);
 }
 nav a:active {
   text-decoration: none;
 }
 
-ul.nav a:hover { background-color: #fff !important; }
+nav a.active {
+  border-bottom:5px solid #9F0033;
+  color: #9F0033;
+}
+
+ul.nav a:hover { background-color: transparent !important; }
 
 .mynavbar {
   background: white;
