@@ -28,18 +28,18 @@ nav a:visited {
 nav a:hover {
   color: #B72E46;
   text-decoration: none;
-  -webkit-transform:scale(1.25); /* Safari and Chrome */
-  -moz-transform:scale(1.25); /* Firefox */
-  -ms-transform:scale(1.25); /* IE 9 */
-  -o-transform:scale(1.25); /* Opera */
-  transform:scale(1.25);
+  -webkit-transform:scaleX(1.25); /* Safari and Chrome */
+  -moz-transform:scaleX(1.25); /* Firefox */
+  -ms-transform:scaleX(1.25); /* IE 9 */
+  -o-transform:scaleX(1.25); /* Opera */
+  transform:scaleX(1.25);
 }
 nav a:active {
   text-decoration: none;
 }
 .mynavbar {
   background: white;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
 }
 .navbar-toggle .icon-bar {
   background-color: white;
