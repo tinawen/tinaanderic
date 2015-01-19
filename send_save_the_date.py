@@ -39,14 +39,16 @@ def parse_and_send_email(name_list, email_list):
 		else: # name_list only has 1 element
 			group_name = name_list[0]
 		name = '%(group_name)s' % {'group_name': group_name}
-#		print name
+
 		html_email = html_template.render(name=name)
 		text_email = txt_template.render(name=name)
 	if len(email_list) > 0:
 		email_list = [unicodedata.normalize('NFKD', email).encode('ascii','ignore') for email in email_list]
 		for email in email_list:
 			send_email(html_email, text_email, email)
-		#print email_list
+	else:
+		print "Can't send email for group: there is no email ", name_list
+
 
 if __name__ == "__main__":
 	env = Environment(loader=PackageLoader('app', 'emails'))
@@ -60,12 +62,16 @@ if __name__ == "__main__":
 	for guest in guests:
 		guest_name = guest.name.strip()
 		if guest.group_id == group_id:
+			# sanity check
+			if guest.is_primary:
+				print "guest shouldn't be primary ", guest
 			email = guest.email.strip()
 			if len(email) > 0:
 				email_list.append(email)
 			name_list.append(guest_name)
 		else:
-			parse_and_send_email(name_list, email_list)
+			if group_id > 0:
+				parse_and_send_email(name_list, email_list)
 			group_id = guest.group_id
 			name_list = [guest_name]
 			email = guest.email.strip()
