@@ -39,13 +39,14 @@ def parse_and_send_email(name_list, email_list):
 		else: # name_list only has 1 element
 			group_name = name_list[0]
 		name = '%(group_name)s' % {'group_name': group_name}
-
+		print name
 		html_email = html_template.render(name=name)
 		text_email = txt_template.render(name=name)
 	if len(email_list) > 0:
 		email_list = [unicodedata.normalize('NFKD', email).encode('ascii','ignore') for email in email_list]
-		for email in email_list:
-			send_email(html_email, text_email, email)
+		# uncomment to actually send
+		#for email in email_list:
+		#	send_email(html_email, text_email, email)
 	else:
 		print "Can't send email for group: there is no email ", name_list
 
