@@ -30,7 +30,7 @@ def parse_and_send_email(name_list, email_list):
 			last_names = [n.split(' ')[-1] for n in name_list]
 			# test to see if all last names are the same
 			if all(last_name == last_names[0] for last_name in last_names):
-				first_names = [''.join(n.split(' ')[:-1]) for n in name_list]
+				first_names = [' '.join(n.split(' ')[:-1]) for n in name_list]
 				first_few_before_last = first_names[:-1]
 				modified_first_name = ', '.join(first_few_before_last) + " and " + first_names[-1]
 				group_name = modified_first_name + ' ' + last_names[0]
