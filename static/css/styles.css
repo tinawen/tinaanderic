@@ -79,27 +79,27 @@ ul.nav a:hover { background-color: transparent !important; }
   margin: 2px;
 }
 
-#rsvp {
+.rsvp {
   background-color: #fff;
   color: #d00;
 }
 
-#rsvp img {
+.rsvp img {
   margin-top: 50px;
 }
 
-#rsvp .rsvp-text {
-  margin: 40px 0 20px 0;
+.rsvp .rsvp-text {
+  padding: 40px 0 20px 0;
   font-size: 40px;
 }
 
-#rsvp .rsvp-code-text {
+.rsvp .rsvp-code-text {
   border-top: 1px dotted #d00;
   font-size: 30px;
   padding-top: 40px;
 }
 
-#rsvp .rsvp-failure-text {
+.rsvp .rsvp-failure-text {
   font-size: 20px;
   font-weight: bold;
   border: 1px solid #f44;
@@ -108,17 +108,36 @@ ul.nav a:hover { background-color: transparent !important; }
   margin: 10px auto;
 }
 
-#rsvp .form-inline {
+.rsvp .form-inline {
   padding: 20px 0 40px 0;
 }
 
-#rsvp .form-inline label {
+.rsvp .form-inline label {
   color: #337ab7;
 }
 
-#rsvp .form-inline .form-group input {
+.rsvp .form-inline .form-group input {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.rsvp .rsvp-guest {
+  padding: 20px 0 20px 0;
+}
+
+.rsvp .rsvp-guest {
+  margin: 10px 0 10px 0;
+  font-size: 24px;
+  text-align: left;
+}
+
+.rsvp .rsvp-guest .rsvp-guest-name {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.rsvp .send-rsvp {
+  padding: 20px 0 20px 0;
 }
 
 @media all and (max-width: 959px) {

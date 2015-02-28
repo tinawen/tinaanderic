@@ -1,12 +1,22 @@
 {% extends "nav.html" %}
 {% block content %}
-<div class="text-center">
-  </br></br>
-  <h2>We hope you'll be able to join us for our special day!</h2>
-  <table>
+<div class="text-center rsvp">
+	<div class="rsvp-text">
+	We hope you'll be able to join us for our special day!
+</div>
   {% for guest in guests %}
-    {{ guest.name }}
+    <div class="row rsvp-guest">
+    	<div class="rsvp-guest-name col-md-6">
+			{{ guest.name }}        
+		</div>
+		<div class="btn-group" role="group" aria-label="">
+			<button type="button" class="btn btn-default">Attend</button>
+			<button type="button" class="btn btn-default">Decline</button>
+		</div>
+	</div>
   {% endfor %}
-  </table>
+  <div class="send-rsvp">
+       <button type="button" class="btn btn-primary">Send RSVP</button>
+  </div>
 </div>
 {% endblock %}
