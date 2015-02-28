@@ -4,6 +4,7 @@
 import sys
 
 from app import db
+from helper import gen_token
 from models import *
 
 if __name__ == "__main__":
@@ -21,6 +22,8 @@ if __name__ == "__main__":
 
   db.drop_all()
   db.create_all()
+
+  group_token = {}
   
   num_added = 0
   for line in open(guest_list_path).xreadlines():
@@ -29,7 +32,14 @@ if __name__ == "__main__":
     group_id = int(line[1])
     is_primary = int(line[2])
     email = line[3]
-    db.session.add(Guest(group_id, name, email, is_primary))
+
+    if group_id in group_token:
+      token = group_token[group_id]
+    else:
+      token = gen_token()
+      group_token[group_id] = token
+
+    db.session.add(Guest(group_id, name, email, is_primary, token))
     num_added += 1
 
   db.session.commit()
