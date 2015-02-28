@@ -41,7 +41,7 @@ def rsvp_with_token(token):
   if guests:
     return render_template('rsvp_with_token.jinja2', active="rsvp", guests=guests)
   else:
-    return redirect(url_for('rsvp'))
+    return render_template('rsvp_with_bad_token.jinja2', active="rsvp")
 
 @app.route("/event")
 def event():
