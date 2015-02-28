@@ -14,7 +14,7 @@ def send_email(email_html, email_text, email):
 	request = requests.post(request_url, auth=('api', key), data={
 		'from': 'Tina and Eric\'s Wedding <wedding@tinaanderic.com>',
     	'to': email,
-    	'subject': 'Save the Date!',
+    	'subject': 'Save the Date - if you haven\'t',
     	'html': email_html,
     	'text': email_text,
     	})
@@ -39,14 +39,15 @@ def parse_and_send_email(name_list, email_list):
 		else: # name_list only has 1 element
 			group_name = name_list[0]
 		name = '%(group_name)s' % {'group_name': group_name}
-		print name
 		html_email = html_template.render(name=name)
 		text_email = txt_template.render(name=name)
 	if len(email_list) > 0:
 		email_list = [unicodedata.normalize('NFKD', email).encode('ascii','ignore') for email in email_list]
+		# testing
+		# print "%(name)s will be getting save the date at %(email_list)s" % { 'name': name, 'email_list': email_list}
 		# uncomment to actually send
-		#for email in email_list:
-		#	send_email(html_email, text_email, email)
+		for email in email_list:
+			send_email(html_email, text_email, email)
 	else:
 		print "Can't send email for group: there is no email ", name_list
 
@@ -64,8 +65,8 @@ if __name__ == "__main__":
 		guest_name = guest.name.strip()
 		if guest.group_id == group_id:
 			# sanity check
-			if guest.is_primary:
-				print "guest shouldn't be primary ", guest
+		#	if guest.is_primary:
+		#		print "guest shouldn't be primary ", guest
 			email = guest.email.strip()
 			if len(email) > 0:
 				email_list.append(email)
