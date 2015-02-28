@@ -1,0 +1,10 @@
+{% extends "nav.jinja2" %}
+{% block content %}
+<div class="text-center">
+  </br></br>
+  <h1>RSVP</h1>
+  {% for guest in guests %}
+    {{ guest.name }}
+  {% endfor %}
+</div>
+{% endblock %}
