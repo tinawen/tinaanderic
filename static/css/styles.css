@@ -99,8 +99,21 @@ ul.nav a:hover { background-color: transparent !important; }
   padding-top: 40px;
 }
 
+#rsvp .rsvp-failure-text {
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid #f44;
+  background-color: #fdd;
+  width: 50%;
+  margin: 10px auto;
+}
+
 #rsvp .form-inline {
   padding: 20px 0 40px 0;
+}
+
+#rsvp .form-inline label {
+  color: #337ab7;
 }
 
 #rsvp .form-inline .form-group input {
