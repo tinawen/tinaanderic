@@ -3,7 +3,7 @@
 <div id="rsvp" class="text-center">
 	<div class="media">
 		<div class="media-middle">
-        	<img class="media-object" src="static/img/heart.png" alt="heart" height="300" width="241	">
+        	<img class="media-object" src="static/img/heart.png" alt="heart" height="300" width="241">
 		</div>
 	</div>
 	<div class="rsvp-text">
@@ -16,12 +16,12 @@
 		Or enter the 6 digit code in your email here:
 	</div>
 
-	<form class="form-inline" action="/rsvp" method="get">
+	<form class="form-inline">
 		<div class="form-group">
     		<label for="token">Name</label>
     		<input type="text" name="token" class="form-control" id="token" placeholder="6 digit code here">
   		</div>
-  		<button type="submit" class="btn btn-primary">Enter</button>
+  		<button class="btn btn-primary" onclick="submit_token()">Enter</button>
 	</form>
 </div>
 {% endblock %}

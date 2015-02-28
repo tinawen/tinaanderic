@@ -2,9 +2,11 @@
 {% block content %}
 <div class="text-center">
   </br></br>
-  <h1>RSVP</h1>
+  <h2>We hope you'll be able to join us for our special day!</h2>
+  <table>
   {% for guest in guests %}
     {{ guest.name }}
   {% endfor %}
+  </table>
 </div>
 {% endblock %}

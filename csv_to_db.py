@@ -3,9 +3,8 @@
 
 import sys
 
-from app import db
+from app import db, Guest
 from helper import gen_token
-from models import *
 
 if __name__ == "__main__":
   if len(sys.argv) < 2:
