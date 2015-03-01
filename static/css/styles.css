@@ -133,11 +133,40 @@ ul.nav a:hover { background-color: transparent !important; }
 
 .rsvp .rsvp-guest .rsvp-guest-name {
   text-align: right;
-  margin-right: 10px;
+  padding-right: 10px;
 }
 
 .rsvp .send-rsvp {
   padding: 20px 0 20px 0;
+}
+
+.rsvp .rsvp-question {
+  text-align: right;
+}
+
+.rsvp .rsvp-dietary {
+  width: 80%;
+  font-size: 12px;
+}
+
+.rsvp .last-row {
+  border-bottom: 1px dotted #337ab7;
+}
+
+.rsvp .rsvp-guest-meal {
+  display: none;
+}
+
+.rsvp .rsvp-guest-dietary {
+  display: none;
+}
+
+.rsvp .rsvp-guest-meal.show {
+  display: block;
+}
+
+.rsvp .rsvp-guest-dietary.show {
+  display: block;
 }
 
 @media all and (max-width: 959px) {

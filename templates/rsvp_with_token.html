@@ -4,19 +4,48 @@
 	<div class="rsvp-text">
 	We hope you'll be able to join us for our special day!
 </div>
+<form class="">
   {% for guest in guests %}
-    <div class="row rsvp-guest">
+    <div class="row rsvp-guest rsvp-guest-coming">
     	<div class="rsvp-guest-name col-md-6">
 			{{ guest.name }}        
 		</div>
-		<div class="btn-group" role="group" aria-label="">
-			<button type="button" class="btn btn-default">Attend</button>
-			<button type="button" class="btn btn-default">Decline</button>
+		<div class="btn-group" data-toggle="buttons">
+	  		<label class="btn btn-default rsvp-options-yes">
+	    		<input type="radio" name="rsvp-options-yes" autocomplete="off">Attend
+			</label>
+  			<label class="btn btn-default rsvp-options-no">
+    			<input type="radio" name="rsvp-options-no" autocomplete="off">Decline
+  			</label>
 		</div>
 	</div>
+	<div class="row rsvp-guest rsvp-guest-meal">
+    	<div class="rsvp-guest-name col-md-6">
+			{{ guest.name }}'s meal choice       
+		</div>
+		<div class="col-md-6">
+		<div class="dropdown" role="presentation">
+  			<button id="mealSelection" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    			Please choose...
+		    	<span class="caret"></span>
+			</button>
+  			<ul class="dropdown-menu" role="menu" aria-labelledby="mealSelection">
+  				<li role="presentation"><a role="menuitem" tabindex="1" href="#">Steak</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="2" href="#">Crab</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Vegan</a></li>
+  			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="row rsvp-guest last-row rsvp-guest-dietary">
+		<label for="message-text" class="rsvp-question col-md-6">Does {{ guest.name }} have any dietary restrictions?</label>
+		<div class="col-md-6">
+	        <textarea class="rsvp-dietary"></textarea>
+	    </div>
+    </div>
   {% endfor %}
   <div class="send-rsvp">
        <button type="button" class="btn btn-primary">Send RSVP</button>
   </div>
-</div>
+</form>
 {% endblock %}
