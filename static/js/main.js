@@ -32,5 +32,9 @@ $( document ).ready(function() {
 		var attendElem = $(this).prev('.rsvp-options-yes').removeClass('active');
 		updateAttendingOptions(false, attendElem);
 	});
+
+	$('.rsvp-guest-meal .dropdown-menu li').click(function() {
+		console.log("drop down clicked");
+	});
 });
 
