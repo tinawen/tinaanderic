@@ -1,11 +1,13 @@
 import binascii
 import os
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, session, abort
 from flask.ext.sqlalchemy import SQLAlchemy
 
 # -----------CONFIGURATION------------
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+# TODO(piotrf): move this to the environment config
+app.secret_key = 'just for development'
 db = SQLAlchemy(app)
 
 # -------------MODELS-------------
@@ -41,9 +43,13 @@ def rsvp():
 def rsvp_with_token(token):
   guests = Guest.query.filter_by(token=token).all()
   if guests:
-    return render_template('rsvp_with_token.html', active="rsvp", guests=guests)
+    return render_template('rsvp_with_token.html', active="rsvp", guests=guests, token=token)
   else:
     return render_template('rsvp_with_bad_token.html', active="rsvp")
+
+@app.route("/rsvp/<token>/submit")
+def rsvp_submit(token):
+  return render_template('rsvp_thanks.html', active='rsvp')
 
 @app.route("/event")
 def event():
