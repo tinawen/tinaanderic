@@ -4,8 +4,9 @@
 	<div class="rsvp-text">
 	We hope you'll be able to join us for our special day!
 </div>
-<form class="" action="/rsvp/{{ token }}/submit" onsubmit="return validateRSVPForm()" method="post">
+<form class="" action="/rsvp/{{ token }}/submit" onsubmit="return validateRSVPForm()" method="POST">
   <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
+  <input name="ids" type=hidden value="{{ guest_ids }}">
   {% for guest in guests %}
   <div class="rsvp-answer-group">
     <div class="row rsvp-guest rsvp-guest-coming">
