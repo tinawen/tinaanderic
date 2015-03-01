@@ -157,6 +157,10 @@ ul.nav a:hover { background-color: transparent !important; }
   display: none;
 }
 
+.rsvp .rsvp-guest-meal .mealSelection{
+  font-size: 18px;
+}
+
 .rsvp .rsvp-guest-dietary {
   display: none;
 }
