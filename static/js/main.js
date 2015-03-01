@@ -5,8 +5,13 @@ function submit_token() {
   } else {
     $("#failure").hide();
     token = token.toUpperCase();
-    window.location.replace('rsvp/' + token)
+    window.location.assign('/rsvp/' + token);
   }
+}
+
+function validateRSVPForm() {
+  console.log('submit!');
+  return true;
 }
 
 $( document ).ready(function() {

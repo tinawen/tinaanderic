@@ -4,7 +4,8 @@
 	<div class="rsvp-text">
 	We hope you'll be able to join us for our special day!
 </div>
-<form class="">
+<form class="" action="/rsvp/{{ token }}/submit" onsubmit="return validateRSVPForm()" method="post">
+  <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
   {% for guest in guests %}
     <div class="row rsvp-guest rsvp-guest-coming">
     	<div class="rsvp-guest-name col-md-6">
