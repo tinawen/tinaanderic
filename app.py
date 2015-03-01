@@ -92,10 +92,6 @@ def gallery():
 def stories():
   return render_template('stories.html', active="stories")
 
-@app.route("/registry")
-def registry():
-	return render_template('registry.html', active="registry")
-
 # Validate all POST requests by checking if the csrf_token in the
 # POST matches our session token. This requires a hidden field to
 # be added to each FORM with value csrf_token, e.g.:
