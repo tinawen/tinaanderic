@@ -9,7 +9,7 @@
   {% for guest in guests %}
     <div class="row rsvp-guest rsvp-guest-coming">
     	<div class="rsvp-guest-name col-md-6">
-			{{ guest.name }}        
+			{{ guest.name }} is        
 		</div>
 		<div class="btn-group" data-toggle="buttons">
 	  		<label class="btn btn-default rsvp-options-yes">
@@ -22,12 +22,14 @@
 	</div>
 	<div class="row rsvp-guest rsvp-guest-meal">
     	<div class="rsvp-guest-name col-md-6">
-			{{ guest.name }}'s meal choice       
+			{{ guest.name }}'s meal choice:
 		</div>
 		<div class="col-md-6">
 		<div class="dropdown" role="presentation">
-  			<button id="mealSelection" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    			Please choose...
+  			<button class="mealSelection" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  				<span class="choose">
+	    			Please choose...
+	    		</span>
 		    	<span class="caret"></span>
 			</button>
   			<ul class="dropdown-menu" role="menu" aria-labelledby="mealSelection">

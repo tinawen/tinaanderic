@@ -39,7 +39,7 @@ $( document ).ready(function() {
 	});
 
 	$('.rsvp-guest-meal .dropdown-menu li').click(function() {
-		console.log("drop down clicked");
+		$(this).closest('.dropdown-menu').prev('.mealSelection').children('.choose').text($(this).text());
 	});
 });
 
