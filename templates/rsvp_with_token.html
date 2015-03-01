@@ -8,53 +8,52 @@
   <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
   <input name="ids" type=hidden value="{{ guest_ids }}">
   {% for guest in guests %}
+  <div class="rsvp-answer-group">
     <div class="row rsvp-guest rsvp-guest-coming">
     	<div class="rsvp-guest-name col-md-6">
-			{{ guest.name }} is        
+	  		{{ guest.name }} is        
 		</div>
 		<div class="btn-group" data-toggle="buttons">
-	  		<label class="btn btn-default rsvp-options-yes {{ 'active' if guest.coming else None }}">
-	    		<input type="radio" autocomplete="off">Attend
+			<label class="btn btn-default rsvp-options-yes">
+		    	<input type="radio" name="rsvp-options-yes" autocomplete="off">Attend
 			</label>
-  			<label class="btn btn-default rsvp-options-no {{ 'active' if not guest.coming else None }}">
-    			<input type="radio" autocomplete="off">Decline
-  			</label>
+  	  		<label class="btn btn-default rsvp-options-no">
+    	    	<input type="radio" name="rsvp-options-no" autocomplete="off">Decline
+  	  		</label>
 		</div>
-	</div>
-	<input name="attending_{{ guest.id }}" type="hidden" value="-1">
-	<div class="row rsvp-guest rsvp-guest-meal {{ 'show' if guest.coming else None }} ">
+    </div>
+    <div class="row rsvp-guest rsvp-guest-meal">
     	<div class="rsvp-guest-name col-md-6">
 			{{ guest.name }}'s meal choice:
-		</div>
-		<div class="col-md-6">
-		<div class="dropdown" role="presentation">
-			{% set meal_selection = ["Steak", "Crab", "Vegan"] %}
-  			<button class="mealSelection" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  				<span class="choose">
-  					{{ meal_selection[guest.meal_selection] if guest.meal_selection else "Please choose..."}}
-	    		</span>
-		    	<span class="caret"></span>
-			</button>
-  			<ul class="dropdown-menu" role="menu" aria-labelledby="mealSelection">
-  				{% set i = 1 %}
-  				{% for meal in meal_selection %}
-	  				<li role="presentation"><a role="menuitem" tabindex="{{i}}" href="#">{{ meal }}</a></li>
-	  				{%	set i = i + 1 %}
-	  			{% endfor %}
-  			</ul>
-		</div>
-		</div>
-	</div>
-	<input name="meal_{{ guest.id }}" type="hidden" value="-1">
-	<div class="row rsvp-guest last-row rsvp-guest-dietary {{ 'show' if guest.coming else None }}">
-		<label for="message-text" class="rsvp-question col-md-6">Does {{ guest.name }} have any dietary restrictions?</label>
-		<div class="col-md-6">
-	        <textarea name="dietary_{{ guest.id }}" class="rsvp-dietary">{{ guest.dietary_restrictions if guest.dietary_restrictions else "" }}</textarea>
-	    </div>
+      	</div>
+      	<div class="col-md-6">
+			<div class="dropdown" role="presentation">
+  	  			<button class="mealSelection" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  	    			<span class="choose">
+	      				Please choose...
+	    			</span>
+	    			<span class="caret"></span>
+	  			</button>
+  	  			<ul class="dropdown-menu" role="menu" aria-labelledby="mealSelection">
+  	    			<li role="presentation"><a role="menuitem" tabindex="1" href="#">Steak</a></li>
+    	    		<li role="presentation"><a role="menuitem" tabindex="2" href="#">Crab</a></li>
+    	    		<li role="presentation"><a role="menuitem" tabindex="3" href="#">Vegan</a></li>
+  	  			</ul>
+			</div>
+      	</div>
     </div>
+    <div class="row rsvp-guest last-row rsvp-guest-dietary">
+      <label for="message-text" class="rsvp-question col-md-6">Does {{ guest.name }} have any dietary restrictions?</label>
+      <div class="col-md-6">
+	<textarea class="rsvp-dietary"></textarea>
+      </div>
+    </div>
+  </div>
   {% endfor %}
   <div class="send-rsvp">
        <button type="submit" class="btn btn-primary">Send RSVP</button>
+       <div id="failure" class="rsvp-failure-text" style="display: none">
+       </div>
   </div>
 </form>
 {% endblock %}

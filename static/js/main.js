@@ -10,8 +10,31 @@ function submit_token() {
 }
 
 function validateRSVPForm() {
-  console.log('submit!');
-  return true;
+  var failed = false;
+  var failure_reason = '';
+  $('.rsvp-answer-group').each(function() {
+    // Verify that they chose attend/decline for each person.
+    attending = $(this).find('.rsvp-options-yes').hasClass('active')
+    declined = $(this).find('.rsvp-options-no').hasClass('active')
+    if (!attending && !declined) {
+      failed = true;
+      failure_reason = 'You must select either "Attend" or "Decline" for each guest.';
+      return;
+    }
+    // Verify that each attending guest has a meal choice.
+    if (attending) {
+      if ($(this).find('.choose').html().indexOf('choose...') > -1) {
+	failed = true;
+	failure_reason = 'You must select a meal for each attending guest.';
+	return;
+      }
+    }
+  });
+  if (failed) {
+    $("#failure").html(failure_reason);
+    $("#failure").show();
+  }
+  return !failed;
 }
 
 $( document ).ready(function() {
