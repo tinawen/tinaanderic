@@ -176,6 +176,21 @@ ul.nav a:hover { background-color: transparent !important; }
   display: block;
 }
 
+.stories {
+    background-color: #fff;
+    color: #d00;
+}
+
+.stories .story-section-title {
+  font-size: 30px;
+}
+
+.stories .story-section-desc {
+  font-size: 20px;
+  text-align: left;
+  padding: 15px 30px 15px 30px;
+}
+
 @media all and (max-width: 959px) {
 #welcomebanner{
     top: -11vw;
