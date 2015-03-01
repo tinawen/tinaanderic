@@ -1,5 +1,6 @@
+import binascii
 import os
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask.ext.sqlalchemy import SQLAlchemy
 
 # -----------CONFIGURATION------------
@@ -62,6 +63,24 @@ def stories():
 @app.route("/registry")
 def registry():
 	return render_template('registry.html', active="registry")
+
+# Validate all POST requests by checking if the csrf_token in the
+# POST matches our session token. This requires a hidden field to
+# be added to each FORM with value csrf_token, e.g.:
+# <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
+@app.before_request
+def csrf_protect():
+  if request.method == "POST":
+    token = session.pop('_csrf_token', None)
+    if not token or token != request.form.get('_csrf_token'):
+      abort(400)
+
+def generate_csrf_token():
+  if '_csrf_token' not in session:
+    session['_csrf_token'] = binascii.hexlify(os.urandom(32))
+  return session['_csrf_token']
+
+app.jinja_env.globals['csrf_token'] = generate_csrf_token
 
 if __name__ == "__main__":
   port = int(os.environ.get("PORT", 5000))
