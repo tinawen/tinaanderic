@@ -30,6 +30,22 @@ class Guest(db.Model):
     self.is_primary = is_primary
     self.token = token
 
+# -------------HELPERS-----------
+def find_guest_by_id(guest_id):
+  return Guest.query.filter_by(id=guest_id).one()
+
+def update_not_attending(guest_id):
+  guest = find_guest_by_id(guest_id)
+  guest.coming = False
+  db.session.commit()
+
+def update_attending(guest_id, meal_choice, dietary_restrictions):
+  guest = find_guest_by_id(guest_id)
+  guest.coming = True
+  guest.meal_selection = meal_choice
+  guest.dietary_restrictions = dietary_restrictions
+  db.session.commit()
+
 # -------------VIEWS-------------
 @app.route("/")
 def index():
@@ -43,12 +59,21 @@ def rsvp():
 def rsvp_with_token(token):
   guests = Guest.query.filter_by(token=token).all()
   if guests:
-    return render_template('rsvp_with_token.html', active="rsvp", guests=guests, token=token)
+    return render_template('rsvp_with_token.html', active="rsvp", guests=guests, guest_ids = ' '.join([str(guest.id) for guest in guests]), token=token)
   else:
     return render_template('rsvp_with_bad_token.html', active="rsvp")
 
-@app.route("/rsvp/<token>/submit")
+@app.route("/rsvp/<token>/submit", methods=['POST'])
 def rsvp_submit(token):
+  ids = request.form['ids'].split(' ')
+  for guest_id in ids:
+    attending = request.form['attending_' + str(guest_id)]
+    if int(attending) is not 0:
+      meal_choice = request.form['meal_' + str(guest_id)]
+      dietary_restrictions = request.form['dietary_' + str(guest_id)]
+      update_attending(guest_id, meal_choice, dietary_restrictions)
+    else:
+       update_not_attending(guest_id)
   return render_template('rsvp_thanks.html', active='rsvp')
 
 @app.route("/event")

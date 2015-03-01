@@ -165,6 +165,9 @@ ul.nav a:hover { background-color: transparent !important; }
   display: none;
 }
 
+.rsvp .rsvp-guest-dietary textarea {
+  color: #000;
+}
 .rsvp .rsvp-guest-meal.show {
   display: block;
 }
