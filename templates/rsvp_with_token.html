@@ -10,10 +10,10 @@
   {% for guest in guests %}
   <div class="rsvp-answer-group">
     <div class="row rsvp-guest rsvp-guest-coming">
-    	<div class="rsvp-guest-name col-md-6">
+    	<div class="rsvp-guest-name col-md-6 col-sm-12">
 			{{ guest.name }}        
 		</div>
-		<div class="btn-group" data-toggle="buttons">
+		<div class="btn-group col-md-6 col-sm-12" data-toggle="buttons">
 	  		<label class="btn btn-default rsvp-options-yes {{ 'active' if guest.coming else None }}">
 	    		<input type="radio" autocomplete="off">Attend
 			</label>
@@ -24,10 +24,10 @@
 	</div>
 	<input name="attending_{{ guest.id }}" type="hidden" value="-1">
 	<div class="row rsvp-guest rsvp-guest-meal {{ 'show' if guest.coming else None }} ">
-    	<div class="rsvp-guest-name col-md-6">
+    	<div class="rsvp-guest-name col-md-6 col-sm-12">
 			{{ guest.name }}'s meal choice:
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 col-sm-12">
 		<div class="dropdown" role="presentation">
 			{% set meal_selection = ["Steak", "Crab", "Vegan"] %}
   			<button class="mealSelection" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
