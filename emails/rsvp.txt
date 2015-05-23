@@ -1,0 +1,16 @@
+~~RSVP~~
+
+OCTOBER 3, 2015 | RANDOLPH NJ
+
+Dear {{ name }},
+
+Microsoft is the birthplace of many things. One of them is Tina and Eric's love. After five years of dating, we've finally decided to seal the deal and get married in front of our beloved family and friends. You are cordially invited to join the celebration on October 3, 2015 in Randolph, New Jersey. 
+
+Please let us know if you are coming by RSVP via this link http://www.tinaanderic.com/rsvp/{{token}}. Please use this code: {{ token }}.
+
+We can't wait to celebrate this exciting day with you. 
+
+Love, 
+Tina & Eric 
+
+www.tinaanderic.com

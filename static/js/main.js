@@ -21,14 +21,6 @@ function validateRSVPForm() {
       failure_reason = 'You must select either "Attend" or "Decline" for each guest.';
       return;
     }
-    // Verify that each attending guest has a meal choice.
-    if (attending) {
-      if ($(this).find('.choose').html().indexOf('choose...') > -1) {
-	failed = true;
-	failure_reason = 'You must select a meal for each attending guest.';
-	return;
-      }
-    }
   });
   if (failed) {
     $("#failure").html(failure_reason);
