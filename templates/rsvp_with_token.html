@@ -7,7 +7,6 @@
 	<div class="rsvp-sub-text">
 		Your dietary restrictions will be taken care of at the wedding venue. You will be able to make your meal selection then as well. We only need to know whether you'll be joining us! =)
 	</div>
-</div>
 <form class="" action="/rsvp/{{ token }}/submit" onsubmit="return validateRSVPForm()" method="POST">
   <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
   <input name="ids" type=hidden value="{{ guest_ids }}">
