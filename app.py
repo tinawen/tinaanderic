@@ -39,11 +39,9 @@ def update_not_attending(guest_id):
   guest.coming = False
   db.session.commit()
 
-def update_attending(guest_id, meal_choice, dietary_restrictions):
+def update_attending(guest_id):
   guest = find_guest_by_id(guest_id)
   guest.coming = True
-  guest.meal_selection = meal_choice
-  guest.dietary_restrictions = dietary_restrictions
   db.session.commit()
 
 # -------------VIEWS-------------
@@ -66,15 +64,18 @@ def rsvp_with_token(token):
 @app.route("/rsvp/<token>/submit", methods=['POST'])
 def rsvp_submit(token):
   ids = request.form['ids'].split(' ')
+  num_attendees = 0
   for guest_id in ids:
     attending = request.form['attending_' + str(guest_id)]
-    if int(attending) is not 0:
-      meal_choice = request.form['meal_' + str(guest_id)]
-      dietary_restrictions = request.form['dietary_' + str(guest_id)]
-      update_attending(guest_id, meal_choice, dietary_restrictions)
+    if int(attending) > 0:
+      num_attendees += 1
+      update_attending(guest_id)
     else:
-       update_not_attending(guest_id)
-  return render_template('rsvp_thanks.html', active='rsvp')
+      update_not_attending(guest_id)
+  if num_attendees > 0:
+    return render_template('rsvp_thanks.html', active='rsvp')
+  else: 
+    return render_template('rsvp_sorry.html', active='rsvp')
 
 @app.route("/event")
 def event():

@@ -93,6 +93,18 @@ ul.nav a:hover { background-color: transparent !important; }
   font-size: 40px;
 }
 
+.rsvp .rsvp-sub-text {
+  color: #999;
+  padding: 0 40px;
+  font-size: 20px;
+}
+
+.rsvp .rsvp-sub-text-bottom {
+  color: #999;
+  padding: 0 40px 40px 40px;
+  font-size: 20px;
+}
+
 .rsvp .rsvp-code-text {
   border-top: 1px dotted #d00;
   font-size: 30px;
