@@ -200,6 +200,10 @@ ul.nav a:hover { background-color: transparent !important; }
   padding: 15px 30px 15px 30px;
 }
 
+.accomodation {
+  font-size: 20px;
+}
+
 @media all and (max-width: 959px) {
 #welcomebanner{
     top: -11vw;
