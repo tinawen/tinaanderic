@@ -1,7 +1,27 @@
 {% extends "nav.html" %}
 {% block content %}
-<div class="text-center">
-  </br></br>
-  <h1>Accommodations coming soon!</h1>
+<br>
+<br>
+<div class="accomodation row">	
+  <div class="col-md-6">
+    <div class="picturewrapper">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.467253936083!2d-74.412305!3d40.861619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c308043adc5065%3A0xd7f3557fd5dcbba0!2sSheraton+Parsippany+Hotel!5e0!3m2!1sen!2sus!4v1432414098891" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="text-center">
+      <h2><u>Sheraton Parsippany Hotel</u></h2>	
+      <img class="media-object" src="{{ url_for('static', filename='img/sheraton.jpg') }}" alt="sheraton" height="277" width="413">
+    </div>
+    <div>
+      <br>
+      <p>
+	We have a block of rooms at the Sheraton Parsippany in
+	Parsippany, NJ that includes transport to and from our
+	wedding. You can reserve a room on the following
+	site: <a href="https://www.starwoodmeeting.com/events/start.action?id=1503164709&key=39DBF80F">reserve</a>
+      </p>
+    </div>
+  </div>
 </div>
 {% endblock %}
