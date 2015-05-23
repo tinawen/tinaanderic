@@ -18,8 +18,6 @@ class Guest(db.Model):
   email = db.Column(db.String(120))
   is_primary = db.Column(db.Integer)
   coming = db.Column(db.Boolean)
-  meal_selection = db.Column(db.Integer)
-  dietary_restrictions = db.Column(db.Text)
   last_modified = db.Column(db.DateTime)
   token = db.Column(db.String(20))
 
