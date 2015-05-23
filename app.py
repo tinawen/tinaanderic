@@ -6,8 +6,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 # -----------CONFIGURATION------------
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-# TODO(piotrf): move this to the environment config
-app.secret_key = 'just for development'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'just for developmnet')
 db = SQLAlchemy(app)
 
 # -------------MODELS-------------
