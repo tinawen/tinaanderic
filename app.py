@@ -12,12 +12,18 @@ db = SQLAlchemy(app)
 
 # -------------MODELS-------------
 class Guest(db.Model):
+  # Possible states of the "coming" variable.
+  class Attending:
+    UNSET = 0
+    YES = 1
+    NO = 2
+
   id = db.Column(db.Integer, primary_key=True)
   group_id = db.Column(db.Integer)
   name = db.Column(db.String(80))
   email = db.Column(db.String(120))
   is_primary = db.Column(db.Integer)
-  coming = db.Column(db.Boolean)
+  coming = db.Column(db.Integer)
   last_modified = db.Column(db.DateTime)
   token = db.Column(db.String(20))
 
@@ -27,6 +33,7 @@ class Guest(db.Model):
     self.email = email
     self.is_primary = is_primary
     self.token = token
+    self.coming = self.Attending.UNSET
 
 # -------------HELPERS-----------
 def find_guest_by_id(guest_id):
@@ -34,12 +41,12 @@ def find_guest_by_id(guest_id):
 
 def update_not_attending(guest_id):
   guest = find_guest_by_id(guest_id)
-  guest.coming = False
+  guest.coming = guest.Attending.NO
   db.session.commit()
 
 def update_attending(guest_id):
   guest = find_guest_by_id(guest_id)
-  guest.coming = True
+  guest.coming = guest.Attending.YES
   db.session.commit()
 
 # -------------VIEWS-------------
