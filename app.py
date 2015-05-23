@@ -18,8 +18,6 @@ class Guest(db.Model):
   email = db.Column(db.String(120))
   is_primary = db.Column(db.Integer)
   coming = db.Column(db.Boolean)
-  meal_selection = db.Column(db.Integer)
-  dietary_restrictions = db.Column(db.Text)
   last_modified = db.Column(db.DateTime)
   token = db.Column(db.String(20))
 
@@ -39,11 +37,9 @@ def update_not_attending(guest_id):
   guest.coming = False
   db.session.commit()
 
-def update_attending(guest_id, meal_choice, dietary_restrictions):
+def update_attending(guest_id):
   guest = find_guest_by_id(guest_id)
   guest.coming = True
-  guest.meal_selection = meal_choice
-  guest.dietary_restrictions = dietary_restrictions
   db.session.commit()
 
 # -------------VIEWS-------------
@@ -69,9 +65,7 @@ def rsvp_submit(token):
   for guest_id in ids:
     attending = request.form['attending_' + str(guest_id)]
     if int(attending) is not 0:
-      meal_choice = request.form['meal_' + str(guest_id)]
-      dietary_restrictions = request.form['dietary_' + str(guest_id)]
-      update_attending(guest_id, meal_choice, dietary_restrictions)
+      update_attending(guest_id)
     else:
        update_not_attending(guest_id)
   return render_template('rsvp_thanks.html', active='rsvp')
