@@ -23,10 +23,6 @@ def send_email(email_html, email_text, email):
   	print 'Sent to email %(email)s' % {'email': email}
 
 def parse_and_send_email(name_list, email_list, token):
-	print "name_list is ", name_list
-	print "email list is ", email_list
-	print "token is ", token
-#	return 
 	if len(name_list) > 0:
 		if len(name_list) > 1:
 			# if there are more than 2 names with the same last name, change it to first_name and first_name last_name
