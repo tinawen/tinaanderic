@@ -16,6 +16,6 @@ if __name__ == "__main__":
   outfile.write(','.join(columns))
   outfile.write('\n')
   for guest in Guest.query.all():
-    outfile.write(','.join([str(vars(guest)[column]) for column in columns]).rstrip())
+    outfile.write(','.join([unicode(vars(guest)[column]) for column in columns]).rstrip().encode('utf-8'))
     outfile.write('\n')
   outfile.close()
