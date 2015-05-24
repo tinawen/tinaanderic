@@ -71,10 +71,10 @@ def rsvp_submit(token):
   num_attendees = 0
   for guest_id in ids:
     attending = request.form['attending_' + str(guest_id)]
-    if int(attending) > 0:
+    if int(attending) is 1:
       num_attendees += 1
       update_attending(guest_id)
-    else:
+    elif int(attending) is 2:
       update_not_attending(guest_id)
   if num_attendees > 0:
     return render_template('rsvp_thanks.html', active='rsvp')

@@ -17,15 +17,15 @@
 			{{ guest.name }}        
 		</div>
 		<div class="btn-group col-md-6 col-sm-12" data-toggle="buttons">
-	  		<label class="btn btn-default rsvp-options-yes {{ 'active' if guest.coming == guest.Attending.YES else None }}">
+	  		<label class="btn btn-default rsvp-options-yes {{ 'active' if guest.coming == 1 else None }}">
 	    		<input type="radio" autocomplete="off">Attend
 			</label>
-  			<label class="btn btn-default rsvp-options-no {{ 'active' if guest.coming == guest.Attending.NO else None }}">
+  			<label class="btn btn-default rsvp-options-no {{ 'active' if guest.coming == 2 else None }}">
     			<input type="radio" autocomplete="off">Decline
   			</label>
 		</div>
 	</div>
-	<input name="attending_{{ guest.id }}" type="hidden" value="-1">
+	<input name="attending_{{ guest.id }}" type="hidden" value="{{ guest.coming or -1 }}">
   </div>
   {% endfor %}
   <div class="send-rsvp">

@@ -32,7 +32,7 @@ function validateRSVPForm() {
 $( document ).ready(function() {
 	function updateAttendingOptions(attending, element) {
 		if (attending) {
-			element.text("Attending");
+			element.text("Attend");
 			parent = element.closest('.rsvp-guest-coming');
 			meal = parent.next().next('.rsvp-guest-meal').addClass('show');
 			meal.next().next('.rsvp-guest-dietary').addClass('show');
@@ -52,7 +52,7 @@ $( document ).ready(function() {
 	$('.rsvp-options-no').click(function() {
 		var attendElem = $(this).prev('.rsvp-options-yes').removeClass('active');
 		updateAttendingOptions(false, attendElem);
-		attendElem.closest('.rsvp-guest-coming').next('input').val(0);
+		attendElem.closest('.rsvp-guest-coming').next('input').val(2);
 	});
 
 	$('.rsvp-guest-meal .dropdown-menu li a').click(function() {
