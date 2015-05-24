@@ -225,4 +225,12 @@ ul.nav a:hover { background-color: transparent !important; }
 .rsvp .rsvp-guest-dietary .col-md-6 {
   text-align: center;
 }
+
+.rsvp .rsvp-token-form {
+  margin-right: 20px;
+}
+
+.stories .story-section-title {
+  padding-top: 20px;
+}
 }

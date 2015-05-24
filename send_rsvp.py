@@ -14,7 +14,7 @@ def send_email(email_html, email_text, email):
 	request = requests.post(request_url, auth=('api', key), data={
 		'from': 'Tina and Eric\'s Wedding <wedding@tinaanderic.com>',
     	'to': email,
-    	'subject': 'RSVP to Tina and Eric\'s Wedding!',
+    	'subject': 'Your invitation to Tina and Eric\'s Wedding!',
     	'html': email_html,
     	'text': email_text,
     	})
@@ -26,7 +26,7 @@ def parse_and_send_email(name_list, email_list, token):
 	print "name_list is ", name_list
 	print "email list is ", email_list
 	print "token is ", token
-	return 
+#	return 
 	if len(name_list) > 0:
 		if len(name_list) > 1:
 			# if there are more than 2 names with the same last name, change it to first_name and first_name last_name
