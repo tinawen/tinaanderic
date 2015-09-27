@@ -1,0 +1,10 @@
+~~See you there!~~
+
+Dear {{ name }},
+
+Our wedding day is approaching fast!  We are looking forward to seeing you at our wedding on October 3 at 6pm!  Remember that details are available at http://www.tinaanderic.com.
+
+Love,
+ 
+Tina & Eric 
+
