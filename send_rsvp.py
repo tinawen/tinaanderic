@@ -14,7 +14,7 @@ def send_email(email_html, email_text, email):
 	request = requests.post(request_url, auth=('api', key), data={
 		'from': 'Tina and Eric\'s Wedding <wedding@tinaanderic.com>',
     	'to': email,
-    	'subject': 'Your invitation to Tina and Eric\'s Wedding!',
+    	'subject': 'Please RSVP to Tina and Eric\'s Wedding!',
     	'html': email_html,
     	'text': email_text,
     	})
@@ -45,7 +45,7 @@ def parse_and_send_email(name_list, email_list, token):
 	if len(email_list) > 0:
 		email_list = [unicodedata.normalize('NFKD', email).encode('ascii','ignore') for email in email_list]
 		# testing
-		# print "%(name)s will be getting save the date at %(email_list)s" % { 'name': name, 'email_list': email_list}
+		#print "%(name)s at %(email_list)s have not responded" % { 'name': name, 'email_list': email_list}
 		# uncomment to actually send
 		for email in email_list:
 			send_email(html_email, text_email, email)
@@ -63,6 +63,7 @@ if __name__ == "__main__":
 	group_name = ''
 	email_list = []
 	token = ''
+	exclude_group_ids = [152, 153, 154]
 	for guest in guests:
 		guest_name = guest.name.strip()
 		# for first time
@@ -73,22 +74,27 @@ if __name__ == "__main__":
 		#	if guest.is_primary:
 		#		print "guest shouldn't be primary ", guest
 			email = guest.email.strip()
-			if len(email) > 0:
+			if len(email) > 0 and guest.coming == 0 and guest.group_id not in exclude_group_ids:
 				email_list.append(email)
-			name_list.append(guest_name)
+			if guest.coming == 0 and guest.group_id not in exclude_group_ids:
+				name_list.append(guest_name)
 		else:
 			# new group
-			if group_id > 0:
+			if group_id > 0 and len(name_list) > 0:
 				parse_and_send_email(name_list, email_list, token)
 			token = guest.token
 			group_id = guest.group_id
-			name_list = [guest_name]
+			if guest.coming == 0 and guest.group_id not in exclude_group_ids:
+				name_list = [guest_name]
+			else:
+				name_list = []
 			email = guest.email.strip()
-			if len(email):
+			if len(email) > 0 and guest.coming == 0 and guest.group_id not in exclude_group_ids:
 				email_list = [email]
 			else:
 				email_list = []
 			group_name = ''
-	parse_and_send_email(name_list, email_list, token)
+	if len(name_list) > 0:
+		parse_and_send_email(name_list, email_list, token)
 
 
